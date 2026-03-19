@@ -1,25 +1,28 @@
 [build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
 build-backend = "setuptools.build_meta"
-requires = ["setuptools>=42", "wheel"]
-
-[tool.setuptools.packages.find]
-include = ["seej*"]
 
 [project]
-authors = [{ name = "Jiaxi Yang", email = "jason.yang98@foxmail.com" }]
-dependencies = ["tqdm", "readchar", "rich"]
-description = "See JSONL"
-license = { text = "MIT" }
 name = "seej"
+version = "0.2.0"
+description = "Interactive JSONL browser with rich rendering"
 readme = "README.md"
-requires-python = ">=3.9"
-version = "0.1.0"
+requires-python = ">=3.7"
+license = {text = "MIT"}
+authors = [{ name = "Jiaxi Yang", email = "jason.yang98@foxmail.com" }]
+dependencies = [
+    "rich>=10.0.0",
+    "readchar>=3.0.0",
+]
 
-classifiers = [
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "black>=21.0",
 ]
 
 [project.scripts]
 seej = "seej.see_jsonl:main"
+
+[tool.setuptools.packages.find]
+include = ["seej*"]
