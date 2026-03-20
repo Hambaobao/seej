@@ -7,22 +7,20 @@ name = "seej"
 version = "0.2.0"
 description = "Interactive JSONL browser with rich rendering"
 readme = "README.md"
-requires-python = ">=3.7"
-license = {text = "MIT"}
+requires-python = ">=3.8"
+license = { text = "MIT" }
 authors = [{ name = "Jiaxi Yang", email = "jason.yang98@foxmail.com" }]
-dependencies = [
-    "rich>=10.0.0",
-    "readchar>=3.0.0",
-]
+dependencies = ["rich>=10.0.0", "readchar>=3.0.0", "tqdm>=4.0.0"]
 
 [project.optional-dependencies]
-dev = [
-    "pytest>=6.0",
-    "black>=21.0",
-]
+dev = ["pytest>=6.0", "pytest-cov>=4.0", "black>=21.0"]
 
 [project.scripts]
 seej = "seej.see_jsonl:main"
 
 [tool.setuptools.packages.find]
 include = ["seej*"]
+
+[tool.pytest.ini_options]
+markers = ["unit: fast unit tests (no network, no subprocess)"]
+testpaths = ["tests"]

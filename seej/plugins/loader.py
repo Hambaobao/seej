@@ -1,7 +1,8 @@
 """Plugin discovery and loading system."""
 
 import sys
-from typing import Dict, List, Callable, Optional
+
+from typing import List
 from importlib import metadata
 from rich.console import Console
 
@@ -117,7 +118,9 @@ def load_all_plugins(verbose: bool = True) -> int:
         total_renderers += count
 
         if plugin_info.loaded and verbose:
-            console.print(f"[green]✓[/green] {plugin_info.name} " f"[dim]v{plugin_info.version}[/dim] " f"→ {count} renderer(s)")
+            console.print(f"[green]✓[/green] {plugin_info.name} "
+                          f"[dim]v{plugin_info.version}[/dim] "
+                          f"→ {count} renderer(s)")
 
     if verbose and total_renderers > 0:
         console.print()
