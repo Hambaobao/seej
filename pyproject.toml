@@ -18,6 +18,7 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
     "pytest>=6.0",
+    "pytest-cov>=4.0",
     "black>=21.0",
 ]
 
@@ -26,3 +27,9 @@ seej = "seej.see_jsonl:main"
 
 [tool.setuptools.packages.find]
 include = ["seej*"]
+
+[tool.pytest.ini_options]
+markers = [
+    "unit: fast unit tests (no network, no subprocess)",
+]
+testpaths = ["tests"]
